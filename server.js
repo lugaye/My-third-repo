@@ -7,6 +7,13 @@ const { check, validationResult } = require('express-validator');
 
 const app = express();
 
+// Configure session middleware
+app.use(session({
+    secret: 'secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
